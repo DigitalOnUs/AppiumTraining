@@ -5,6 +5,10 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 
 import java.util.concurrent.TimeUnit;
 
@@ -13,6 +17,7 @@ public class BaseTest {
     AppiumDriverLocalService service;
     AppiumDriver<MobileElement> driver;
 
+    @BeforeTest
     public void setUP()
     {
         service = AppiumDriverLocalService.buildDefaultService();
@@ -26,9 +31,10 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
+    @AfterTest
     public void tearDown()
     {
-        driver.quit();
+       // driver.quit();
         service.stop();
     }
 }
