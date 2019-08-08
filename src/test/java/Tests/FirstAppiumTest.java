@@ -26,7 +26,7 @@ public class FirstAppiumTest extends BaseTest {
         FirstAppiumTest obj = new FirstAppiumTest();
         obj.setUP();
         obj.validateText();
-        //obj.tearDown();
+
 
     }
 }
